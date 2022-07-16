@@ -22,7 +22,8 @@
 \usepackage{amsmath,amsfonts,stmaryrd,amssymb} % Math packages
 
 \usepackage{enumerate} % Custom item numbers for enumerations
-
+\usepackage{listings}
+\usepackage{xcolor}
 \usepackage[ruled]{algorithm2e} % Algorithms
 
 \usepackage[framemethod=tikz]{mdframed} % Allows defining custom boxed/framed environments
@@ -38,6 +39,20 @@
     filecolor=black,
     linkcolor=black,
     urlcolor=black
+}
+
+
+\lstdefinestyle{CStyle}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  language=C,
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
 }
 %----------------------------------------------------------------------------------------
 %	DOCUMENT MARGINS

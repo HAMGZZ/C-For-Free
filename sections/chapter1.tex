@@ -3,4 +3,57 @@ C was created in 1970 by Dennis Ritchie during his time at Bell Labs as the impl
 \subsection{GCC on a system}
 GCC is essentially a set of command line tool that can be installed on any common computer system. One will need to install GCC (binaries can be found here: \url{https://gcc.gnu.org/}) to follow on with this text.\\
 Once GCC is installed on your host we can go through the basics.\\
+\subsubsection{The GCC Command}
+If we run just \texttt{gcc} we should see the following result:
+\begin{commandline}
+\begin{verbatim}
+	$ gcc
+  gcc: fatal error: no input files
+  compilation terminated.
+\end{verbatim}
+\end{commandline}
+Firstly, great job on getting GCC installed, secondly we now need to understand what it's asking for.\\
+The great thing about GCC is that it gives a lot of hint's to what is wrong with what one may have entered. Luckily for us, it tells us we are missing an input file. From the GCC manual (or help in the command line) gcc requires the following: \texttt{gcc [options] file...}\\
+One can run GCC as the following:
+\begin{commandline}
+\begin{verbatim}
+	$ gcc HelloWorld.c
+$
+\end{verbatim}
+\end{commandline}
+This will compile the \texttt{HelloWorld.c} file and create a program file called \texttt{a.out} which can be run by your system. However, the program name \texttt{a.out} is not very nice. To change this, we can add an option to the GCC compiler. The option \texttt{-o} enables us to denote an output name for the compiled program.\\
+For example:
+\begin{commandline}
+\begin{verbatim}
+	$ gcc -o helloworld HelloWorld.c
+$
+\end{verbatim}
+\end{commandline}
+This will produce a program executable with the name \texttt{helloworld} which is a lot more user friendly than the previous output. 
+\subsubsection{Hello World}
+This will be a quick look into compiling your own program, not a detailed analysis of the code... that will come later.\\
+You can use whichever text editor you want to create these programs. I recommend using VS Code or notepad++ for those who are new. However, as with anything to do with programming, it is all your choice, so choose something you are comfortable with. \\
+Create a new file with the \texttt{HelloWorld.c} file name.\\
+Enter in the following code:
+\begin{file}[HelloWorld.c]
+\begin{lstlisting}[style=CStyle]
+#include <stdio.h>
 
+int main()
+{
+  printf("Hello, World\r\n");
+  return 0;
+}
+\end{lstlisting}
+\end{file}
+It does not matter if you do not understand the code at this point, we are just trying to compile something so save this file. Now head to the command line, compile and run the file.\\
+You should expect something similar:
+\begin{commandline}
+\begin{verbatim}
+	$ gcc -o helloworld HelloWorld.c
+$ ./helloworld
+  Hello, World
+$  
+\end{verbatim}
+\end{commandline}
+Well done, you have just compiled your own C program!
